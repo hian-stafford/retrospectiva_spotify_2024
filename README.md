@@ -112,9 +112,6 @@ Antes de usar os dados no projeto, certifique-se de que o arquivo JSON está ace
 # Exemplo de carregamento do arquivo
 import pandas as pd
 
-# Caminho do arquivo
-file_path = "StreamingHistory.json"
-
 # Carregar os dados do JSON
-streaming_data = pd.read_json(file_path)
-print(streaming_data.head())
+df = pd.read_json("StreamingHistory.json")
+df.head(10)
