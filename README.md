@@ -77,4 +77,44 @@ A análise dos dados revelou discrepâncias entre os dados reais de consumo e os
 
 ---
 
-💡 **Contribuições são bem-vindas!** Caso queira contribuir, sinta-se à vontade para abrir issues ou enviar pull requests.  
+## 🛠️ Como Baixar Seus Dados Pessoais do Spotify  
+
+Se você deseja utilizar seus próprios dados no projeto, o Spotify permite que os usuários baixem seus dados pessoais por meio de sua plataforma. Siga os passos abaixo para obter os dados:  
+
+### Passo 1: Solicitar os Dados no Spotify  
+
+1. Acesse o site oficial do Spotify: [www.spotify.com](https://www.spotify.com).  
+2. Faça login em sua conta.  
+3. No menu superior direito, clique em **Perfil** > **Conta**.  
+4. Na página da conta, localize a seção **Configurações de Privacidade**.  
+5. Clique em **Baixar seus dados**.  
+6. Escolha os tipos de dados que deseja solicitar. Certifique-se de incluir os históricos de reprodução (streaming history).  
+7. Confirme a solicitação.  
+
+> **Nota**: O Spotify pode levar até 30 dias para processar a solicitação e enviar os dados para o seu e-mail registrado.  
+
+### Passo 2: Receber e Baixar os Dados  
+
+1. Quando os dados estiverem prontos, você receberá um e-mail do Spotify com um link para download.  
+2. Clique no link do e-mail e faça o download dos dados.  
+3. O download será fornecido como um arquivo `.zip`. Extraia o conteúdo para acessar os arquivos.  
+
+### Passo 3: Encontrar o Arquivo de Histórico de Streaming  
+
+1. Dentro da pasta extraída, localize o arquivo chamado `StreamingHistory.json` (ou similar).  
+2. Este arquivo contém informações detalhadas sobre suas músicas ouvidas, incluindo artista, faixa, duração e timestamps.  
+
+### Passo 4: Preparar os Dados para Análise  
+
+Antes de usar os dados no projeto, certifique-se de que o arquivo JSON está acessível. Copie o arquivo para o mesmo diretório do notebook ou ajuste o caminho no código conforme necessário:  
+
+```python
+# Exemplo de carregamento do arquivo
+import pandas as pd
+
+# Caminho do arquivo
+file_path = "StreamingHistory.json"
+
+# Carregar os dados do JSON
+streaming_data = pd.read_json(file_path)
+print(streaming_data.head())
